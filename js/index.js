@@ -73,7 +73,7 @@ const siteContent = {
   const nav = document.querySelector ("header nav");
 
   /// ADD CONTENT ///
-  nav.insertAdjacentHTML ("beforeend" , `<a href="#">Hello World</a>`);
+  nav.insertAdjacentHTML ("afterbegin" , `<a href="#">Hello World</a>`);
   nav.insertAdjacentHTML ("beforeend" , `<a href="original.html">Original</a>`);
   
   /// STYLE CONTENT ///
