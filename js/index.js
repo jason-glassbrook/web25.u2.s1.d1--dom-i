@@ -119,6 +119,45 @@ document
   )
 ;
 
+{ /// address ///
+  const item = {
+    query : ".contact > p:nth-of-type(1)" ,
+    class : "address" , href : "" , text : ""
+  };
+  item.text = siteContent["contact"][item.class];
+
+  const elem = document.querySelector (item.query);
+  elem.classList.add (item.class);
+  elem.append (document.createTextNode (item.text));
+}
+
+{ /// phone ///
+  const item = {
+    query : ".contact > p:nth-of-type(2)" ,
+    class : "phone" , href : "" , text : ""
+  };
+  item.text = siteContent["contact"][item.class];
+  item.href = `tel:${item.text}`;
+
+  const elem = document.querySelector (item.query);
+  elem.classList.add (item.class);
+  elem.setAttribute ("href" , item.href);
+  elem.append (document.createTextNode (item.text));
+}
+
+{ /// email ///
+  const item = {
+    query : ".contact > p:nth-of-type(3)" ,
+    class : "email" , href : "" , text : ""
+  };
+  item.text = siteContent["contact"][item.class];
+  item.href = `mailto:${item.text}`;
+
+  const elem = document.querySelector (item.query);
+  elem.classList.add (item.class);
+  elem.setAttribute ("href" , item.href);
+  elem.append (document.createTextNode (item.text));
+}
 
 /***************************************
   footer
