@@ -51,7 +51,8 @@ const siteContent = {
 
 document
   .getElementById ("logo-img")
-  .setAttribute ("src" , siteContent["nav"]["img-src"]);
+  .setAttribute ("src" , siteContent["nav"]["img-src"])
+;
 
 document
   .querySelectorAll ("header nav a")
@@ -62,6 +63,7 @@ document
       );
     }
   )
+;
 
 /***************************************
   cta
@@ -69,7 +71,20 @@ document
 
 document
   .getElementById ("cta-img")
-  .setAttribute ("src" , siteContent["cta"]["img-src"]);
+  .setAttribute ("src" , siteContent["cta"]["img-src"])
+;
+
+document
+  .querySelectorAll (".cta-text > *")
+  .forEach (
+    (elem , i) => {
+      const tag = elem.tagName.toLowerCase ();
+      elem.append (
+        document.createTextNode (siteContent["cta"][tag])
+      );
+    }
+  )
+;
 
 /***************************************
   main-content
