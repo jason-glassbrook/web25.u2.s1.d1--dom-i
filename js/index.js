@@ -163,8 +163,14 @@ document
   footer
 ***************************************/
 
-const myFooter = document.querySelector ("footer > p");
-myFooter.classList.add("copyright");
-myFooter.append (
-  document.createTextNode (siteContent["footer"]["copyright"])
-);
+{ /// copyright ///
+  const item = {
+    query : "footer > p" ,
+    class : "copyright" , text : ""
+  };
+  item.text = siteContent["footer"][item.class];
+
+  const elem = document.querySelector (item.query);
+  elem.classList.add(item.class);
+  elem.append (document.createTextNode (item.text));
+}
