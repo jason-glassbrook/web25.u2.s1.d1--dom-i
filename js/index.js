@@ -113,3 +113,9 @@ document
 /***************************************
   footer
 ***************************************/
+
+const myFooter = document.querySelector ("footer > p");
+myFooter.classList.add("copyright");
+myFooter.append (
+  document.createTextNode (siteContent["footer"]["copyright"])
+)
