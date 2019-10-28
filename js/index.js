@@ -50,11 +50,12 @@ const siteContent = {
 ***************************************/
 {
   const part = "nav";
+  const data = siteContent[part];
 
   /// image ///
   document
     .getElementById ("logo-img")
-    .setAttribute ("src" , siteContent[part]["img-src"])
+    .setAttribute ("src" , data["img-src"])
   ;
 
   /// the rest ///
@@ -63,7 +64,7 @@ const siteContent = {
     .forEach (
       (elem , i) => {
         elem.append (
-          document.createTextNode (siteContent[part][`nav-item-${i + 1}`])
+          document.createTextNode (data[`nav-item-${i + 1}`])
         );
       }
     )
@@ -74,11 +75,12 @@ const siteContent = {
 ***************************************/
 {
   const part = "cta";
+  const data = siteContent[part];
 
   /// image ///
   document
     .getElementById (`${part}-img`)
-    .setAttribute ("src" , siteContent[part]["img-src"])
+    .setAttribute ("src" , data["img-src"])
   ;
 
   /// the rest ///
@@ -88,7 +90,7 @@ const siteContent = {
       (elem , i) => {
         const tag = elem.tagName.toLowerCase ();
         elem.append (
-          document.createTextNode (siteContent[part][tag])
+          document.createTextNode (data[tag])
         );
       }
     )
@@ -99,11 +101,12 @@ const siteContent = {
 ***************************************/
 {
   const part = "main-content";
+  const data = siteContent[part];
 
   /// image ///
   document
     .getElementById ("middle-img")
-    .setAttribute ("src" , siteContent[part]["middle-img-src"])
+    .setAttribute ("src" , data["middle-img-src"])
   ;
 
   /// sections ///
@@ -124,13 +127,13 @@ const siteContent = {
           elem
             .querySelector (":scope > h4")
             .append (
-              document.createTextNode (siteContent[part][`${section}-h4`])
+              document.createTextNode (data[`${section}-h4`])
             );
           /// paragraph ///
           elem
             .querySelector (":scope > p")
             .append (
-              document.createTextNode (siteContent[part][`${section}-content`])
+              document.createTextNode (data[`${section}-content`])
             );
         }
       )
@@ -141,11 +144,12 @@ const siteContent = {
 ***************************************/
 {
   const part = "contact";
+  const data = siteContent[part];
 
   document
     .querySelector (`.${part} > h4`)
     .append (
-      document.createTextNode (siteContent[part][`${part}-h4`])
+      document.createTextNode (data[`${part}-h4`])
       // this should have been called just "h4" -- grrr
     )
   ;
@@ -155,7 +159,7 @@ const siteContent = {
       query : `.${part} > p:nth-of-type(1)` ,
       class : "address" , href : "" , text : ""
     };
-    item.text = siteContent[part][item.class];
+    item.text = data[item.class];
 
     const elem = document.querySelector (item.query);
     elem.classList.add (item.class);
@@ -167,7 +171,7 @@ const siteContent = {
       query : `.${part} > p:nth-of-type(2)` ,
       class : "phone" , href : "" , text : ""
     };
-    item.text = siteContent[part][item.class];
+    item.text = data[item.class];
     item.href = `tel:${item.text}`;
 
     const elem = document.querySelector (item.query);
@@ -181,7 +185,7 @@ const siteContent = {
       query : `.${part} > p:nth-of-type(3)` ,
       class : "email" , href : "" , text : ""
     };
-    item.text = siteContent[part][item.class];
+    item.text = data[item.class];
     item.href = `mailto:${item.text}`;
 
     const elem = document.querySelector (item.query);
@@ -195,13 +199,14 @@ const siteContent = {
 ***************************************/
 {
   const part = "footer";
+  const data = siteContent[part];
 
   { /// copyright ///
     const item = {
       query : `${part} > p` ,
       class : "copyright" , text : ""
     };
-    item.text = siteContent[part][item.class];
+    item.text = data[item.class];
   
     const elem = document.querySelector (item.query);
     elem.classList.add(item.class);
