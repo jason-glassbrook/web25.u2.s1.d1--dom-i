@@ -100,23 +100,41 @@ const siteContent = {
 {
   const part = "main-content";
 
-  /*******************
-    top
-  *******************/
-
-  /*******************
-    middle
-  *******************/
-
+  /// image ///
   document
     .getElementById ("middle-img")
     .setAttribute ("src" , siteContent[part]["middle-img-src"])
   ;
 
-  /*******************
-    bottom
-  *******************/
-
+  /// sections ///
+  {
+    const sections = [
+      "features",
+      "about",
+      "services",
+      "product",
+      "vision"
+    ];
+    document
+      .querySelectorAll (`.${part} .text-content`)
+      .forEach (
+        (elem , i) => {
+          const section = sections[i];
+          /// heading ///
+          elem
+            .querySelector (":scope > h4")
+            .append (
+              document.createTextNode (siteContent[part][`${section}-h4`])
+            );
+          /// paragraph ///
+          elem
+            .querySelector (":scope > p")
+            .append (
+              document.createTextNode (siteContent[part][`${section}-content`])
+            );
+        }
+      )
+  }
 }
 /***************************************
   contact
