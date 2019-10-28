@@ -49,8 +49,9 @@ const siteContent = {
   nav
 ***************************************/
 
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+document
+  .getElementById ("logo-img")
+  .setAttribute ("src" , siteContent["nav"]["img-src"]);
 
 /***************************************
   cta
