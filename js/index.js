@@ -100,7 +100,8 @@ document
 
 document
   .getElementById ("middle-img")
-  .setAttribute ("src" , siteContent["main-content"]["middle-img-src"]);
+  .setAttribute ("src" , siteContent["main-content"]["middle-img-src"])
+;
 
 /*******************
   bottom
@@ -110,6 +111,15 @@ document
   contact
 ***************************************/
 
+document
+  .querySelector (".contact > h4")
+  .append (
+    document.createTextNode (siteContent["contact"]["contact-h4"])
+    // this should have been called just "h4" -- grrr
+  )
+;
+
+
 /***************************************
   footer
 ***************************************/
@@ -118,4 +128,4 @@ const myFooter = document.querySelector ("footer > p");
 myFooter.classList.add("copyright");
 myFooter.append (
   document.createTextNode (siteContent["footer"]["copyright"])
-)
+);
