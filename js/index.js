@@ -57,6 +57,10 @@ document
   cta
 ***************************************/
 
+document
+  .getElementById ("cta-img")
+  .setAttribute ("src" , siteContent["cta"]["img-src"]);
+
 /***************************************
   main-content
 ***************************************/
@@ -68,6 +72,10 @@ document
 /*******************
   middle
 *******************/
+
+document
+  .getElementById ("middle-img")
+  .setAttribute ("src" , siteContent["main-content"]["middle-img-src"]);
 
 /*******************
   bottom
