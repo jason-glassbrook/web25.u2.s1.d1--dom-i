@@ -63,7 +63,7 @@ const siteContent = {
     .forEach (
       (elem , i) => {
         elem.append (
-          document.createTextNode (siteContent[part][`nav-item-${i}`])
+          document.createTextNode (siteContent[part][`nav-item-${i + 1}`])
         );
       }
     )
