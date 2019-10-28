@@ -69,6 +69,31 @@ const siteContent = {
       }
     )
   ;
+
+  const nav = document.querySelector ("header nav");
+
+  /// ADD CONTENT ///
+  nav.insertAdjacentHTML ("beforeend" , `<a href="#">Hello World</a>`);
+  nav.insertAdjacentHTML ("beforeend" , `<a href="original.html">Original</a>`);
+  
+  /// STYLE CONTENT ///
+  nav
+    .querySelectorAll (":scope a")
+    .forEach(
+      (elem , i) => {
+        elem.style.color = "Lime";
+      }
+    )
+  ;
+  // // :hover doesn't work... I guess because there's nothing being hovered when it runs?
+  // nav
+  //   .querySelectorAll (":scope a:hover")
+  //   .forEach(
+  //     (elem , i) => {
+  //       elem.style.color = "Magenta";
+  //     }
+  //   )
+  // ;
 }
 /***************************************
   cta
