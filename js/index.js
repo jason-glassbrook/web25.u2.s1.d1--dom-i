@@ -53,6 +53,16 @@ document
   .getElementById ("logo-img")
   .setAttribute ("src" , siteContent["nav"]["img-src"]);
 
+document
+  .querySelectorAll ("header nav a")
+  .forEach (
+    (elem , i) => {
+      elem.append (
+        document.createTextNode (siteContent["nav"][`nav-item-${i}`])
+      );
+    }
+  )
+
 /***************************************
   cta
 ***************************************/
