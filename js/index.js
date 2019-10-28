@@ -48,129 +48,145 @@ const siteContent = {
 /***************************************
   nav
 ***************************************/
+{
+  const part = "nav";
 
-document
-  .getElementById ("logo-img")
-  .setAttribute ("src" , siteContent["nav"]["img-src"])
-;
+  /// image ///
+  document
+    .getElementById ("logo-img")
+    .setAttribute ("src" , siteContent[part]["img-src"])
+  ;
 
-document
-  .querySelectorAll ("header nav a")
-  .forEach (
-    (elem , i) => {
-      elem.append (
-        document.createTextNode (siteContent["nav"][`nav-item-${i}`])
-      );
-    }
-  )
-;
-
+  /// the rest ///
+  document
+    .querySelectorAll ("header nav a")
+    .forEach (
+      (elem , i) => {
+        elem.append (
+          document.createTextNode (siteContent[part][`nav-item-${i}`])
+        );
+      }
+    )
+  ;
+}
 /***************************************
   cta
 ***************************************/
+{
+  const part = "cta";
 
-document
-  .getElementById ("cta-img")
-  .setAttribute ("src" , siteContent["cta"]["img-src"])
-;
+  /// image ///
+  document
+    .getElementById (`${part}-img`)
+    .setAttribute ("src" , siteContent[part]["img-src"])
+  ;
 
-document
-  .querySelectorAll (".cta-text > *")
-  .forEach (
-    (elem , i) => {
-      const tag = elem.tagName.toLowerCase ();
-      elem.append (
-        document.createTextNode (siteContent["cta"][tag])
-      );
-    }
-  )
-;
-
+  /// the rest ///
+  document
+    .querySelectorAll (`.${part}-text > *`)
+    .forEach (
+      (elem , i) => {
+        const tag = elem.tagName.toLowerCase ();
+        elem.append (
+          document.createTextNode (siteContent[part][tag])
+        );
+      }
+    )
+  ;
+}
 /***************************************
   main-content
 ***************************************/
+{
+  const part = "main-content";
 
-/*******************
-  top
-*******************/
+  /*******************
+    top
+  *******************/
 
-/*******************
-  middle
-*******************/
+  /*******************
+    middle
+  *******************/
 
-document
-  .getElementById ("middle-img")
-  .setAttribute ("src" , siteContent["main-content"]["middle-img-src"])
-;
+  document
+    .getElementById ("middle-img")
+    .setAttribute ("src" , siteContent[part]["middle-img-src"])
+  ;
 
-/*******************
-  bottom
-*******************/
+  /*******************
+    bottom
+  *******************/
 
+}
 /***************************************
   contact
 ***************************************/
+{
+  const part = "contact";
 
-document
-  .querySelector (".contact > h4")
-  .append (
-    document.createTextNode (siteContent["contact"]["contact-h4"])
-    // this should have been called just "h4" -- grrr
-  )
-;
+  document
+    .querySelector (`.${part} > h4`)
+    .append (
+      document.createTextNode (siteContent[part][`${part}-h4`])
+      // this should have been called just "h4" -- grrr
+    )
+  ;
 
-{ /// address ///
-  const item = {
-    query : ".contact > p:nth-of-type(1)" ,
-    class : "address" , href : "" , text : ""
-  };
-  item.text = siteContent["contact"][item.class];
+  { /// address ///
+    const item = {
+      query : `.${part} > p:nth-of-type(1)` ,
+      class : "address" , href : "" , text : ""
+    };
+    item.text = siteContent[part][item.class];
 
-  const elem = document.querySelector (item.query);
-  elem.classList.add (item.class);
-  elem.append (document.createTextNode (item.text));
+    const elem = document.querySelector (item.query);
+    elem.classList.add (item.class);
+    elem.append (document.createTextNode (item.text));
+  }
+
+  { /// phone ///
+    const item = {
+      query : `.${part} > p:nth-of-type(2)` ,
+      class : "phone" , href : "" , text : ""
+    };
+    item.text = siteContent[part][item.class];
+    item.href = `tel:${item.text}`;
+
+    const elem = document.querySelector (item.query);
+    elem.classList.add (item.class);
+    elem.setAttribute ("href" , item.href);
+    elem.append (document.createTextNode (item.text));
+  }
+
+  { /// email ///
+    const item = {
+      query : `.${part} > p:nth-of-type(3)` ,
+      class : "email" , href : "" , text : ""
+    };
+    item.text = siteContent[part][item.class];
+    item.href = `mailto:${item.text}`;
+
+    const elem = document.querySelector (item.query);
+    elem.classList.add (item.class);
+    elem.setAttribute ("href" , item.href);
+    elem.append (document.createTextNode (item.text));
+  }
 }
-
-{ /// phone ///
-  const item = {
-    query : ".contact > p:nth-of-type(2)" ,
-    class : "phone" , href : "" , text : ""
-  };
-  item.text = siteContent["contact"][item.class];
-  item.href = `tel:${item.text}`;
-
-  const elem = document.querySelector (item.query);
-  elem.classList.add (item.class);
-  elem.setAttribute ("href" , item.href);
-  elem.append (document.createTextNode (item.text));
-}
-
-{ /// email ///
-  const item = {
-    query : ".contact > p:nth-of-type(3)" ,
-    class : "email" , href : "" , text : ""
-  };
-  item.text = siteContent["contact"][item.class];
-  item.href = `mailto:${item.text}`;
-
-  const elem = document.querySelector (item.query);
-  elem.classList.add (item.class);
-  elem.setAttribute ("href" , item.href);
-  elem.append (document.createTextNode (item.text));
-}
-
 /***************************************
   footer
 ***************************************/
+{
+  const part = "footer";
 
-{ /// copyright ///
-  const item = {
-    query : "footer > p" ,
-    class : "copyright" , text : ""
-  };
-  item.text = siteContent["footer"][item.class];
-
-  const elem = document.querySelector (item.query);
-  elem.classList.add(item.class);
-  elem.append (document.createTextNode (item.text));
+  { /// copyright ///
+    const item = {
+      query : `${part} > p` ,
+      class : "copyright" , text : ""
+    };
+    item.text = siteContent[part][item.class];
+  
+    const elem = document.querySelector (item.query);
+    elem.classList.add(item.class);
+    elem.append (document.createTextNode (item.text));
+  }
 }
